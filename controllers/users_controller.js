@@ -18,6 +18,8 @@ module.exports.signIn=function(req,res){
 }
 //Get the sign up data
 module.exports.create=function(req,res){
+    
+
     //todo later
 }
 //Sign in and create session 
