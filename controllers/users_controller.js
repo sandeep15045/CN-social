@@ -17,6 +17,16 @@ module.exports.profile=function(req,res){
     }
 
 }
+
+module.exports.signOut=function(req,res){
+    console.log(req.cookies.user_id);
+    res.clearCookie("user_id");
+    return res.render('user_sign_in',{
+        title:"Social | Sign In"
+    })
+    
+}
+
 module.exports.posts=function(req,res){
     return res.send('<h1> Users post controller 2</h1>')
 }
