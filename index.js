@@ -4,6 +4,7 @@ const app= express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 //add mongoose
+const db = require('./config/mongoose');
 
 app.use(express.urlencoded());
 app.use(cookieParser());
