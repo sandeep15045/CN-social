@@ -1,7 +1,21 @@
 const User=require('../models/user')
 
 module.exports.profile=function(req,res){
-    return res.end('<h1> Users profile controller 1</h1>')
+    if(req.cookies.user_id){
+        User.findById(req.cookies.user_id,function(err,user){
+            if(user){
+                return res.render('user_profile',{
+                    title:"User Profile",
+                    user:user
+                })
+            }
+            return res.redirect('/users/sign-in')
+        });
+    }
+    else{
+        return res.redirect('/users/sign-in')
+    }
+
 }
 module.exports.posts=function(req,res){
     return res.send('<h1> Users post controller 2</h1>')
