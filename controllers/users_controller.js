@@ -1,7 +1,9 @@
 const User=require('../models/user')
 
 module.exports.profile=function(req,res){
-    return res.end('<h1 style="color:pink"> Users profile controller 1</h1>')
+    return res.render('user_profile', {
+        title: 'User Profile'
+    })
 }
 module.exports.posts=function(req,res){
     return res.send('<h1> Users post controller 2</h1>')
@@ -9,11 +11,19 @@ module.exports.posts=function(req,res){
 //rendered sign in page and signup page
 //now go to routes
 module.exports.signUp=function(req,res){
+    if (req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_up',{
         title:"Social | Sign Up"
     })
 }
 module.exports.signIn=function(req,res){
+
+    if (req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_in',{
         title:"Social | Sign In"
     })
