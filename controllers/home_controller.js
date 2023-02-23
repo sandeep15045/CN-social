@@ -1,7 +1,12 @@
+const Post = require('../models/post');
+
 module.exports.home=function(req,res){
 
+    Post.find({},function(err,posts){
+        return res.render('home', {
+            title: "Codeial | Posts",
+            posts:  posts
+        });
+    })
 
-    return res.render('home',{
-        title:"Home Page"
-    });
 }
