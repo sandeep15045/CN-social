@@ -54,3 +54,8 @@ module.exports.createSession=function(req,res){
     return res.redirect('/');
 
 }
+module.exports.destroySession = function(req, res){
+    req.session.destroy(function (err) {
+        res.redirect('/'); //Inside a callback… bulletproof!
+      });
+}
