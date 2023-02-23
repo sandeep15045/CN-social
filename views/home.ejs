@@ -12,10 +12,14 @@
     </form>
 
     <div id="posts-list-container">
+        <p><%=posts%></p>
         <ul>
             <%for(post of posts){%>
                 <li>
                     <%=post.content%>
+                    <small>
+                        post.user.name
+                    </small>
                 </li>
             <%}%>
         </ul>
